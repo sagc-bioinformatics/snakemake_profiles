@@ -21,5 +21,5 @@ use-singularity:
 use-conda:
   true
 cluster-config:
- - "cluster-configs/default.yaml"
+ - "profiles/cluster-configs.yaml"
  - "cluster-configs/phoenix-login1.yaml"

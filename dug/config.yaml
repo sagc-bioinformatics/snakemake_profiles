@@ -23,5 +23,5 @@ use-conda:
 keep-going:
   true
 cluster-config:
- - "cluster-configs/default.yaml"
+ - "profiles/cluster-configs.yaml"
  - "cluster-configs/dug.yaml"
