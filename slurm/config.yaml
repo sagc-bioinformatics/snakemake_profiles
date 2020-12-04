@@ -7,17 +7,17 @@ jobscript:
 restart-times:
   1
 max-jobs-per-second:
-  5
+  1
 max-status-checks-per-second:
-  5
+  1
 local-cores:
-  32
+  4
 jobs:
-  1000
+  100
 use-singularity:
   false
 use-conda:
   true
 cluster-config:
  - "profiles/cluster-config.yaml"
- - "cluster-configs/phoenix.yaml"
+# - "cluster-configs/custom_cluster.yaml"
