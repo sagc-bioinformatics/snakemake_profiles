@@ -1,0 +1,28 @@
+cluster:
+  "profiles/slurm/submit -J {cluster.job-name} -t {cluster.time} -p {cluster.partition} -A {cluster.account} -n {cluster.ntasks} -c {cluster.cpus-per-task} -m {cluster.mem} -o {cluster.output} -g {cluster.gres} -d '{dependencies}'"
+cluster-status:
+  "status"
+jobscript:
+  "jobscript"
+latency-wait:
+  30
+restart-times:
+  1
+max-jobs-per-second:
+  5
+max-status-checks-per-second:
+  5
+local-cores:
+  4
+jobs:
+  9999
+use-singularity:
+  false
+use-conda:
+  true
+keep-going:
+  true
+cluster-config:
+ - "profiles/cluster-config.yaml"
+ - "cluster-configs/sahmri-hpc.yaml"
+ - "cluster-configs/job-resources.yaml"
