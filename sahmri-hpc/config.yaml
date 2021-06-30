@@ -20,6 +20,8 @@ use-singularity:
   false
 use-conda:
   true
+conda-frontend:
+  "mamba"
 keep-going:
   true
 cluster-config:
