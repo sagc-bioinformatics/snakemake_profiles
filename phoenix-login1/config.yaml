@@ -20,6 +20,8 @@ use-singularity:
   false
 use-conda:
   true
+conda-frontend:
+  "mamba"
 cluster-config:
  - "profiles/cluster-configs.yaml"
  - "cluster-configs/phoenix-login1.yaml"
