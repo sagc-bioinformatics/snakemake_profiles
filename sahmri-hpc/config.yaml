@@ -24,6 +24,8 @@ conda-frontend:
   "mamba"
 keep-going:
   true
+printshellcmds:
+  true
 cluster-config:
  - "profiles/cluster-config.yaml"
  - "cluster-configs/sahmri-hpc.yaml"
