@@ -26,5 +26,5 @@ keep-going:
   true
 cluster-config:
  - "profiles/cluster-config.yaml"
- - "cluster-configs/sahmri-hpc.yaml"
+ - "profiles/sahmri-hpc/sahmri-hpc.yaml"
  - "cluster-configs/job-resources.yaml"
