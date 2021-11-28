@@ -3,8 +3,8 @@ __default__ :
   account       : courses01
 # Submitted jobs can be scheduled to run on any of the comma-separated list of partitions
   partition     : workq
-  reservation   : amsi
+  reservation   : null
 # Get the following resources from the "resources" directive of Snakemake rules
-  cpus-per-task : "{resources.threads}"
-  mem           : "{resources.mem_gb}G"
-  time          : "00-{resources.time_hr}:00:00"
+#  cpus-per-task : "{resources.threads}"
+#  mem           : "{resources.mem_gb}G"
+#  time          : "00-{resources.time_hr}:00:00"
