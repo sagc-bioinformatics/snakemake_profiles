@@ -3,19 +3,20 @@
 #    snakemake -j 99 --debug --immediate-submit --cluster 'Snakefile_sbatch.sh {dependencies}'
 #
 
-#sbatch --time {cluster.time} --partition {cluster.partition} --account {cluster.account} --ntasks {cluster.ntasks} --cpus-per-task {cluster.cpus} --mem {cluster.mem} --output {cluster.output}
+#sbatch --time {cluster.time} --partition {cluster.partition} --account {cluster.account} --ntasks {cluster.ntasks} --cpus-per-task {cluster.cpus} --mem {cluster.mem} --output {cluster.output} --reservation {cluster.reservation}
+
 
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
 # Initialize our own variables:
-SBATCH_ARGS="--nice "
+SBATCH_ARGS="--nice --open-mode truncate "
 DEP_STRING=""
 
 # getopts can only handle short forms of arguments
 # We'll just process those sbatch arguments which need some pre-processing
 # everything else will get sent straight to sbatch
 #>&2 echo "*${0}*"
-while getopts ":d:o:e:m:g:" opt; do
+while getopts ":d:o:e:m:g:r:" opt; do
     case "${opt}" in
     d)
         DEPS=${OPTARG}
@@ -36,6 +37,12 @@ while getopts ":d:o:e:m:g:" opt; do
           mkdir -p "${FILE%/*}"
         fi
         SBATCH_ARGS+=" -${opt} ${OPTARG}"
+        ;;
+    r)
+        # Parse `-r` as being for sbatch's `--reservation`
+        if [ "${OPTARG}" != "None" ]; then
+          SBATCH_ARGS+=" --reservation ${OPTARG}"
+        fi
         ;;
     *)
         # Any other arguments will be passed to sbatch as they are
